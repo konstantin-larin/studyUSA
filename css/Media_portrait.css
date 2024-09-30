@@ -1,0 +1,472 @@
+@media (orientation: portrait) {
+	/* Короче я тут напортачил с селекторами, поэтому на каждое свойство
+	я буду писать important, чтобы оно работало */
+	body{
+	/* минимальная ширина нормального планшета, пускай потом будет горизонтальный скрол */
+		min-width: 0 !important;
+		overflow-x: hidden;
+	}
+	header{
+		min-width: 0 !important;
+		/* Задаю ширину, чтобы влез navbar */
+		width: 90%;
+		padding-right: 5%;
+		padding-top: 1px;
+		margin-left: 5%;
+		/* Переделываю фон */
+		background-size: contain;
+	}
+	main{
+		min-width: 0 !important;
+	}
+	section{
+		min-width: 0 !important;
+	}
+	.form{
+		min-width: 0 !important;
+
+	}
+	footer{
+		min-width: 0 !important;
+
+	}
+	/* Ну начнем */
+	/* Проблема в навигационном меню */
+	header nav ul{
+		display: none  !important;	
+	}
+	.mobile_navbar{
+		/* Материализую */
+		display: block !important;
+		/* Стиль */
+		background: #464645;
+		/* Центрирую */
+		text-align: center;
+		/* Стилизую */
+		font-family: Roboto, sans-serif;
+		text-transform: uppercase;
+	}
+	/* сделаю раскрывающуюся панель меню в виде обычного детайлз */
+	.mobile_navbar details summary{
+		list-style: none;
+		/* Размер */
+		font-size: 30px;
+		/* Стиль */
+		color: #DBAD39;
+	}
+	.mobile_nav{
+		display: block !important;	/* Иначе он слушает display: none; */	
+	}
+	.mobile_nav li{
+		display: block;
+		/* Переделываю че написано в responsive */
+		/* Задаю отступ иконок на соцсети */
+		margin-left: 0 !important;
+		/* Интервалы */
+		line-height: 1.4em;
+		/* Размеры */
+		font-size: 20px;
+	}
+	.mobile_nav li i{
+		font-size: 20px;
+	}
+	/* Стилизую ссылки */
+	.mobile_nav li a:link, .mobile_nav li a:visited{
+		color: #DBAD39;
+	}
+	/* Примитивная анимация */
+	.mobile_nav li:hover, .mobile_navbar details summary:hover{
+		background-color: #DBAD39 ;
+	}
+	.mobile_nav li a:link:hover, .mobile_nav li a:visited:hover, .mobile_navbar details summary:hover{
+		color: #464645;
+	}
+	/* Теперь я понял насколько важно каждому элементу задавать класс */
+	/* Я думаю, что тут можно забить на динамический шрифт и vw и работать в пикселях */
+
+	/* Исправляю текстовый блок */
+	/* Под "исправить" я имею ввиду сделать его копию и подправить отступы
+	так как те были в vh и граммотно гармонировали со статуей свободы. На мобильных
+	устройствах такого сделать не получится
+	 */
+	.mobile_head_block{
+		/* растягиваю */
+		width: 100%;
+		display: block !important;
+		/* Центрирую */
+		text-align: center;
+	}
+	.head_block{
+		display: none;
+	}
+	.mobile_head_block h1{
+	/* устанавливаю шрифт по макету */
+	font-size: 53px; 
+	/* динамический шрифт */
+	font-size: calc(18px + 25 * (100vw/1440));
+	/* стилизую*/
+	font-family: 'Montserrat Bold', serif;
+	text-transform: uppercase;
+	color: #DBAD39;
+	/* настраиваю интервалы в относительных от шрифта единицах*/
+	letter-spacing: 0.2em;
+	line-height: 1.5em;
+	/* Отступ сверху */
+	margin-top: 20px;
+	}
+	/* Ключевое слово */
+	.mobile_head_block h1 strong{
+		/* устанавливаю шрифт по макету */
+		font-size: 55px;
+		/* динамический шрифт */
+		font-size: calc(20px + 25 * (100vw/1440));
+		/* стилизую */
+		color: #092C8F;
+		/* чутка увеличиваю межбуквенный интервал */
+		letter-spacing: 0.05em;
+		/* Устанавливаю отступ для выделения */
+		display: inline-block;
+		margin-top: 30px;
+	}
+	/* подзаголовок */
+	.mobile_head_block h2{
+		/* отступ от главного заголовка */
+		margin-top: 30px;
+		/* Настраиваю шрифт */
+		font-size: 20px;
+		/* настраиваю интервалы */
+		letter-spacing: 0.13em;
+		word-spacing: 0.15em;
+		line-height: 1.5em;	
+		/* стилизую */
+		font-family: 'Gotham Pro', sans-serif;
+		color: white; /* Я думаю, что белый здесь оптимален - 
+		налезая на фоновые картинки, он все еще читабелен */
+	}
+	/* стилизую выделенное слово*/
+	.mobile_head_block mark{
+		color: #FFFAFA;
+		background-color: rgba(0, 0, 0, 0);
+		font-weight: 600;
+	}
+	/* Делаю кнопку */
+	.mobile_head_block button{
+		/* отступ сверху */
+		margin-top: 10px;
+		/* Центрирую */
+
+		/* внутренние отступы */
+		padding: 0.8em 1.3em;
+		/* закругление кнопки */
+		border-radius: 30px;
+		/* устанавливаю шрифт по макету */
+		font-size: 12px;
+		letter-spacing: 0.2em;
+		/* стилизую */
+		background-color: #3964DB;
+		color: white;
+		font-family: 'Gotham Pro', sans-serif;
+		text-transform: uppercase;
+		box-shadow: 0px 10px 30px 0px #0043FF40;
+	}
+	.mobile_head_block button span{
+		/* устанавливаю межбуквенный интервал, для вертикального выравнивания */
+		letter-spacing: 0.39em;
+	}
+	.about_us{
+		margin-top: 50px;
+	}
+	/* Увеличиваю размер текста в секции */
+	.about_us p{
+		font-size: 20px;
+		/* Убираю ограничение*/
+		width: 100%;
+		/* Делаю отступ от фотки */
+		margin-top: 20px;
+	}
+	.about_us > img{
+		/* Убираю обтекание */
+		float: none;
+		/* Растягиваю и центрирую */
+		width: 100%;
+		margin: 0 auto;	 
+		height: auto;
+
+	}
+	.about_us ul li{
+		display: block;
+		/* Растягиваю по ширине */
+		width: 100%;
+		/* Делаю отступ со дна */
+		margin-bottom: 40px;
+	}
+	.about_us h3{
+		margin-bottom: 30px;
+	}
+	.uslugy h2{
+		/* Так как уменьшать шрифт заголовка, я просто уберу эти огромные интервалы */
+		line-height: 1.2em;
+	}
+	.uslugy{
+		margin: 100px 0; 
+	}
+	.uslugy ul li{
+		display: block;
+		float: none;
+		width: 80%;
+		margin: 0 auto !important;
+	}
+	.usluga_card{
+
+	}
+	.usluga_card p{
+		font-size: 15px;
+		/* чуть-чуть ограничиваю по ширине и центрирую */
+		width: 90%;
+		margin: 30px auto;
+	}
+	.usluga_card button{
+		font-size: 15px;
+	}
+
+	/* Убираю страшный line-height */
+	main h2, footer h2, .form_wrapper h2{
+		line-height: 1.2em !important;
+		font-size: 25px;
+	}
+	.team h2{
+		/* Отступ снизу*/
+		margin-bottom: 35px;
+	}
+	.team ul li{
+		width: 90%;
+		display: block;
+		float: none;
+		margin: 100px auto !important;
+		padding-bottom: 60px;
+		max-width: 400px;
+	}
+	/* Марджины и паддинги ставлю на глаз - вроде красиво получается */
+	.team ul li img{
+		margin-top: 0;
+		width: 160px;
+		height: auto;
+		/* Идеальный способ поставить центр */
+		transform: translateY(-50%);
+	}
+	.team ul li h3{
+		/* Че то много пространства.*/
+		margin-top: -50px; 
+		/* Да-да, я исправляю все это как краб, но макет впринципе уже
+		готов и отзывчив, а где не отзывчив, то адаптивен. Мобильный 
+		вид - самая последняя стадия верстки, тут можно и без относительных величин
+		и расчетов - главное, чтобы выглядело читабельно */ 		
+	}
+	.team ul li h4{
+		font-size: 14px;
+		line-height: 3em;
+	}
+	.team ul li p{
+		font-size: 14px;
+		width: 80%;
+		margin: 0 auto;
+	}
+	.team ul li address i{
+		font-size: 16px;
+	}
+	.partners h2{
+		margin-bottom: 50px;
+	}
+	.woodman{
+		width: 90%;
+	}
+	.woodman img{
+		width: 30%;
+		height: auto;
+	}
+	.partners p{
+		width: 90%;
+	}
+	
+	.faq h2{
+		margin: 80px 0 40px 0;
+	}
+	#faq aside{
+		/* Убираю обтекание */
+		float: none !important;	
+		width: 100%;
+	}
+	.faq aside details {
+		font-size: 16px !important;
+	}
+	#faq form{
+		width: 100% !important;
+		margin-left: 0 !important;
+		text-align: center;
+		float: none;
+	}
+	#faq form:after{
+		/* На всякий случай */
+		clear: both;
+		content: " ";
+		display: block;
+	}	
+	#faq form img{
+		width: 100%;
+		display: block;
+		margin-top: 30px;
+	}
+	#faq form label{
+		margin: 0 auto;
+		font-size: 14px;
+	}
+	#faq form input{
+		width: 90%;
+		margin: 0 auto;
+	}
+	#faq form button{
+		position: static !important;
+		transform: translateX(0) !important;
+		margin-left: 0 !important;
+		margin-top: 10px;	
+	}
+	#faq{
+		margin-bottom: 30px;
+	}
+	.otzyv h2{
+		margin-bottom: 40px;
+	}
+	/* Тупо обнуляю и растягиваю */
+	.otzyv_text{
+	float: none !important;
+	width: calc(100% - 100px);
+	margin-left: 40px;
+	}
+	.otzyv_text p{
+		font-size: 14px;
+		word-wrap: break-word;
+	}
+	/* Убираю горизонтальную версию */
+	.sign{
+		display: none;
+	}
+	.sign_mobile{
+		display: inline-block !important;
+		margin: 0;
+		float: left;
+		text-align: right;
+		width: 40px;
+		font-size: 100px;
+		font-family: 'Playfair Display', serif;
+		color: #FFD15C;
+		/* Интервалы */
+		letter-spacing: 0.1em;
+		/* Просто встань ровно пожалуйста */
+		position: relative;
+		bottom: 30px;
+	}
+	.otzyv img{
+		display: none;
+	}
+	.mobile_alina{
+		display: inline-block !important;
+		width: 100px !important;
+		height: auto;
+		float: right !important;
+		border:  2px solid #DBAD39;	
+	}
+	.otzyv_text h3{
+		font-size: 20px;
+	}
+	.otzyv_text h4{
+		font-size: 16px;
+	}
+	.otzyv_text button{
+		font-size: 14px;
+		line-height: 1;
+		margin-top: 20px;
+	}
+	.form_wrapper{
+		padding-top: 1px;
+	}
+	.form_wrapper h2{
+		margin: 20px 0;
+		font-size: 23px !important;
+	}
+	.form{
+		width: 90%;
+	}
+	.form input{
+
+	}
+	.form aside{
+		float: none;		
+	}
+	.form form{
+		width: 90%;
+		margin: 0 auto !important;
+		display: block !important;
+	}
+	.form form input, .form form textarea{
+		font-size: 15px;
+	}
+	.form aside{
+		float: none !important;
+		width: 90% !important;
+		margin: 0 auto;
+		display: none; /* С пацанчиком явно проблемы*/
+		/* Мб дисплей нон на время */	
+	}
+	.form aside img{
+		margin-left: 100px;	
+		display: inline-block !important;
+		margin-top: 30px;
+		width: 300px;		
+	}
+	.mobile_address{
+		float: left;
+		margin-top: -150px;
+		/*max-width:  translate оставляет пустое пространство, где ранее стоял элемент
+		и это пространство никто занять не может
+		*/
+	}
+	/* У пацанчика проблемы */
+	@media 	(max-width: 319px) {
+		.form aside{
+			width: 100%;
+		}
+		.form aside img{
+			display: block !important;
+			float: none;
+			width: 90% !important;
+			margin: 40px auto !important;
+		}
+		.mobile_address{
+			float: none;
+			margin-top: 40px;
+		}
+	}
+
+
+	
+	footer nav{
+		margin-bottom: 20px;
+	}
+	footer nav ul{
+		display: block;
+		text-align: center;
+	}
+	footer nav ul li{
+		float: none !important;
+		display: block !important;
+		margin: 15px 0 !important;
+		line-height: 1 !important;
+	}
+	footer nav ul li a:link, footer nav ul li a:visited{
+		font-size: 18px;
+	}
+	footer nav ul li a:link:hover, footer nav ul li a:visited:hover{
+		color: #092C8F;
+	} 
+	/* Media Bracket */
+}

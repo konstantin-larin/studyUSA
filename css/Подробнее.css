@@ -1,0 +1,234 @@
+/* Импортирую шрифты */
+@font-face {
+	font-family: Playfair display;
+	src: url('../fonts/PlayfairDisplay.ttf');
+}
+@font-face {
+	font-family: 'Montserrat Bold';
+	src: url('../fonts/Montserrat-Black.ttf');
+}
+@font-face{ 
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family: 'Gotham Pro';
+	src: url('../fonts/gothampro.ttf');
+}
+@font-face {
+	font-family: Light;
+	src: url('../fonts/gothampro_light.ttf');
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat-Regular.ttf');
+}
+/* Так как страница небольшая, я не буду делить
+css на три файла: responsive, landscape и portrait, а просто настилизую все здесь */
+/* Не сомневаюсь, что выйдет быстро, так как все стили позиционирования и тп похожи*/
+@media screen and (orientation: landscape) {
+	/* Устанавиваю минимальную ширину */
+	body{
+		min-width: 768px;
+	}
+}
+/* Содержимое*/
+main{
+	/* Фон */
+	background-color: #FFF6E4;
+	/*  */
+	padding: 3% 5%;
+}
+/* Навигационное меню */
+nav{
+	/* Уточняю ширину */
+	width: 100%;
+}
+nav ul:not(.spisok_uslug){
+	display: flex; /* во второй раз предаю float */
+	justify-content: space-between;
+	align-items: baseline;
+	/* 100% изучу */
+}
+/* Копирую стиль с основного макета */
+nav ul li a:link, nav ul li a:visited{
+	/* Отступ меж буквами */
+	letter-spacing: 0.05em;
+	/* Че за шрифт */
+	font-family: Roboto, serif;
+	/* Жирность */
+	font-weight: 700;
+	/* Цвет */
+	color: #646464;
+	/* Капс */
+	text-transform: uppercase;
+	/* Размер шрифта под макет */
+	font-size: 14px;
+	/* Динамическое увеличение шрифта */
+	font-size: calc(8px + 6 * (100vw/1440));
+}
+/* Копирую опять */
+mark{
+	/* Стиль */
+	font-family: 'Gotham Pro', sans-serif;
+	color: #092C8F;
+	background-color: rgba(0, 0, 0, 0);
+	font-weight: 600;
+	/* устанавливаю шрифт по макету */
+	font-size: 22px;
+	/* динамический шрифт */
+	font-size: calc(15px + 7 * (100vw/1440));
+	/* настраиваю интервалы */
+	letter-spacing: 0.13em;
+	word-spacing: 0.15em;
+}
+/* Нужно, чтобы значки были справа */
+nav ul li i{
+	float: right;
+	font-size: calc(15px + 6 * (100vw/1440)) !important;
+	letter-spacing: 0.6em;
+	margin-top: 0.8em;
+}
+h1 img{
+	/* Устанавливаю ширину заголовка (картинки) */
+	width: 70%;
+	/* Центрирую */
+	display: block;
+	margin: 100px auto;
+}
+/* Оформляю список услуг. План такой:
+Сделать шириной 80%, а при наведении задавать scale:1.2, 
+чтобы расширялся на весь контейнер (подобно nav)*/
+.spisok_uslug{
+	width: 80%;
+	margin: 0 auto;
+	/* Динамический ( размеры беру на глазок) */
+	font-size: calc(20px + 10 * (100vw/1440));
+	margin-bottom: 80px;
+}	
+.spisok_uslug li{
+	/* Формирую элемент списка */
+	width: 100%;
+	padding: 1em 2em;
+	/* Стиль */
+	box-shadow: 0px 0px 20px 0px #DBAD3933;
+	/* закругление */
+	border-radius: 10px;
+	/* В третий раз предаю блочную верстку */
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	/* Отступ элемента списка */
+	margin-top: 50px;
+}
+.spisok_uslug li h2{
+	/* Стилизую */
+	font-family: 'Gotham Pro';
+	color: #DBAD39;
+	font-weight: 900;
+	/* Размер шрифта */
+	font-size: 1em;
+	/* Интервалы */
+	letter-spacing: 0.12em;
+}
+.spisok_uslug li a{
+	/* Стилизую */
+	text-transform: uppercase;
+	font-family: 'Gotham Pro' !important;
+	background-color: #3964DB;
+	color: white !important;
+	border-radius: 10px;
+	/* Иногда ссылки не хотят менять какие-то парамертры
+	И как же в этом помогает important */
+	/* Задаю размеры */
+	width: 25%;
+	font-size: 0.7em !important; 
+	padding: 1em 0;
+	/* Текст по центру */
+	text-align: center;	
+	margin-right: 0;
+}
+/* Анимация */
+.spisok_uslug li:hover{
+	box-shadow: 0px 0px 30px 0px #FFE6006E;
+	transform: scale(1.2);
+}
+/* Копирую стиль подвала */
+.footer_wrapper{
+	width: 100%;
+	background-color: #272727;
+}
+footer{
+	/* Центрирую */
+	width: 90%;
+	margin: 0 auto;
+	padding: 3em 0 1em 0;
+}
+footer h2{
+	/* Стиль */
+	font-family: Montserrat, serif;
+	color: #092C8F;
+	font-weight: 900;
+	/* Центрирование */
+	text-align: center;
+	/* Интервалы */
+	letter-spacing: 0.15em;
+	/* Размер шрифта */
+	/* Макет */
+	font-size: 36px;
+	/* Динамический не особо нужен */
+}
+footer nav{
+	width: 100%;
+}
+/* Следующий сайт будет на flex-верстке! */
+footer nav ul{
+	display: flex;
+	justify-content: space-between;
+}
+footer nav ul li{
+	/* В линию */
+	display: inline-block;
+	margin: 3em 0;
+}
+/* С блочной версткой очень сложно поддерживать динамическое выравнивание */
+
+/* Аналогично header, только методом vw, для лучшего выравнивания */
+footer nav ul li a:link, footer nav ul li a:visited {
+	/* Отступ меж буквами */
+	letter-spacing: 0.12em;
+	font-family: Roboto, serif;
+	/* Жирность */
+	font-weight: 700;
+	/* Цвет */
+	color: white;
+	/* Капс */
+	text-transform: uppercase;
+	/* Размер шрифта под макет */
+	font-size: 18px;
+	/* Динамическое увеличение шрифта */
+	font-size: calc(8px + 6 * (100vw/1440));
+}
+footer address{
+	text-align: center;
+	/* Стиль*/
+	font-family: 'Light', sans-serif;
+	font-style: normal;
+	/* Центрирование */
+	text-align: center;
+	/* Размер шрифта */
+	/* По макету */
+	font-size: 15px;
+	/* Динамический */
+	font-size: calc(12px + 3 * (100vw/1440));
+	/* Интервалы */
+	line-height: 2em;
+	letter-spacing: 0.15em;	
+}
+footer address a:link, footer address a:visited{
+	color: white;
+}
+/* Добавлю анимацию к подвалу */
+footer nav ul li a:link:hover, footer nav ul li a:visited:hover{
+	color: #092C8F;
+} 

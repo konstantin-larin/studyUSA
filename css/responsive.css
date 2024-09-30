@@ -1,0 +1,1226 @@
+/* Импортирую шрифты */
+@font-face {
+	font-family: Playfair display;
+	src: url('../fonts/PlayfairDisplay.ttf');
+}
+@font-face {
+	font-family: 'Montserrat Bold';
+	src: url('../fonts/Montserrat-Black.ttf');
+}
+@font-face{ 
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family: 'Gotham Pro';
+	src: url('../fonts/gothampro.ttf');
+}
+@font-face {
+	font-family: Light;
+	src: url('../fonts/gothampro_light.ttf');
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat-Regular.ttf');
+}
+/* Общее свойство кнопок */
+button:hover{
+	transform: scale(1.1);
+}
+
+.head_wrapper{
+	/* Задаю враперу растяжение по всей ширине */
+	width: 100%;
+	/* Ставлю фон */
+	background-color: #F9C541;	
+}
+header{
+	/* Хочу, чтобы шапка была во весь экран по высоте */
+	height: 100vh;
+	/* Задаю внутренний отступ содержимого */
+	/* padding: 3% 5%; */
+	/* Эта строчка не нужна по причине того, что 
+	я решил сделать отступ иначе:
+	задать врапперу 100%, а header отцентрировать и задать
+	ему растяжение с отступами следующим способом
+	*/
+	width: 90%;
+	margin: 0 auto;
+	/* Нужен только вн отступ сверху и снизу */
+	padding: 3% 1%; /* и маленький слева и справа, чтобы nav при сужении не клеился к краю */
+	/* Устанавливаю фоновый цвет */
+	background-color: #F9C541;
+	/* Ставлю фоновые картинки */
+	background-image: url('../img/Статуя_свободы.png'), url('../img/Ellipse 6.png');
+	/* Картинок по одной */
+	background-repeat: no-repeat;
+	/* Позиционирую их */
+	/* Задаю в тех же значениях, что и у шапки */
+	/* Использую боттом и райт, чтобы картинки фиксировались
+	в правом нижнем углу */
+	background-position: right bottom, 93% bottom;
+	/*Ставлю отзывчивый размер фоновых картинок
+	*/ 
+	background-size: contain, 70vh;
+	/* Ставлю минимальную высоту, чтобы не уродовалось ниче, пускай скролл будет лучше */
+	min-height: 600px;
+	/* Ставлю максимальную ширину, чтобы элементы не
+		растягивались на огромных экранах вместе с врапером */		
+	max-width: calc(1921px * 0.9);
+}
+/* Навигационное меню */
+header nav{
+	/* Уточняю его ширину */
+	width: 100%;
+}
+/* Позиционирование элементов списка */
+header nav ul li{
+	/* Им надо встать в линию */
+	display: inline-block;
+}
+/* Последние 2 элемента отличаются своим расположением, поэтому задам 2 разных селектора
+Также учту первый элемент
+*/
+header nav ul li:not(li:first-child, li:nth-child(9n), li:last-child){
+	/* Позиционирую как рак, не хачу юзать flex */
+	margin-left: 4%;/* Величина не точная */
+}
+header nav ul li:nth-child(9n){
+	/* Задаю отступ иконок на соцсети */
+	margin-left: 8%;
+}
+header nav ul li:last-child{
+	/* Межиконочный интервал */
+	margin-left: 1%;
+	/* Я решил везде задать margin-left для четкости */
+}
+/* Стилизую текст ссылок меню в обычном состоянии*/
+header nav ul li a:link, header nav ul li a:visited{
+	/* Отступ меж буквами */
+	letter-spacing: 0.05em;
+	/* Че за шрифт */
+	font-family: Roboto, serif;
+	/* Жирность */
+	font-weight: 700;
+	/* Цвет */
+	color: #646464;
+	/* Капс */
+	text-transform: uppercase;
+	/* Размер шрифта под макет */
+	font-size: 14px;
+	/* Динамическое увеличение шрифта */
+	font-size: calc(8px + 6 * (100vw/1440));
+}
+/* Забыл добавить */
+header nav ul li i{
+	/* Импортант полезная штука при исправлениях */
+	font-size: calc(15px + 6 * (100vw/1440)) !important;
+
+}
+/* Отступы содержимого по вертикали лучше писать в vh соответственно высоте контейнера */
+/* Отступы содержимого по горизонтали лучше писать в процентах, чтобы при сужении все содержимое не сжималось (в случае с vw так будет) */
+/* Содержимое шапки */
+.head_block{
+	/* ограничиваю растяжение содержимого по ширине */
+	width: 60%;
+	/* Центрирую содержимое */	
+	text-align: center;
+	/* делаю отступ */
+	margin-top: 13vh;
+}
+/* Главный заголовок */
+.head_block h1{
+	/* устанавливаю шрифт по макету */
+	font-size: 53px; 
+	/* динамический шрифт */
+	font-size: calc(28px + 25 * (100vw/1440));
+	/* стилизую*/
+	font-family: 'Montserrat Bold', serif;
+	text-transform: uppercase;
+	color: #DBAD39;
+	/* настраиваю интервалы в относительных от шрифта единицах*/
+	letter-spacing: 0.2em;
+	line-height: 1.5em;
+}
+/* Ключевое слово */
+.head_block h1 strong{
+	/* устанавливаю шрифт по макету */
+	font-size: 55px;
+	/* динамический шрифт */
+	font-size: calc(30px + 25 * (100vw/1440));
+	/* стилизую */
+	color: #092C8F;
+	/* чутка увеличиваю межбуквенный интервал */
+	letter-spacing: 0.25em;
+}
+/* подзаголовок */
+.head_block h2{
+	/* отступ от главного заголовка */
+	margin-top: 5vh;	
+	/* устанавливаю шрифт по макету */
+	font-size: 22px;
+	/* динамический шрифт */
+	font-size: calc(15px + 7 * (100vw/1440));
+	/* настраиваю интервалы */
+	letter-spacing: 0.13em;
+	word-spacing: 0.15em;
+	line-height: 1.5em;	
+	/* стилизую */
+	font-family: 'Gotham Pro', sans-serif;
+	color: #464645;
+}
+/* стилизую выделенное слово*/
+.head_block mark{
+	color: #092C8F;
+	background-color: rgba(0, 0, 0, 0);
+	font-weight: 600;
+}
+/* Делаю кнопку */
+.head_block button{
+	/* отступ сверху */
+	margin-top: 8vh;
+	/* внутренние отступы */
+	padding: 0.8em 1.3em;
+	/* закругление кнопки */
+	border-radius: 30px;
+	/* устанавливаю шрифт по макету */
+	font-size: 15px;
+	/* динамический шрифт */
+	font-size: calc(12px + 3 *(100vw/1440));	/* интервалы */
+	letter-spacing: 0.2em;
+	line-height: 1.2em;
+	/* стилизую */
+	background-color: #3964DB;
+	color: white;
+	font-family: 'Gotham Pro', sans-serif;
+	text-transform: uppercase;
+	box-shadow: 0px 10px 30px 0px #0043FF40;
+}
+.head_block button span{
+	/* устанавливаю межбуквенный интервал, для вертикального выравнивания */
+	letter-spacing: 0.39em;
+}
+/* шапка на горизонтальный экран готова */
+/* Основное содержимое сайта */
+.main_wrapper{
+	/* Аналогичные действия head_wrapper */
+	width: 100%;
+	background-color: #FFF6E4;
+}
+main{
+	/* Растягиваю на нужную ширину */
+	width: 90%;
+	/* Делаю центрирование */
+	margin: 0 auto;
+	/* Устанавливаю максимальную ширину для дальнейших действий врапера */
+	max-width: calc(1921px * 0.9);
+	/* Устанавливаю внутренние отступы содержимого */
+	padding: 3% 1%;
+	/* Устанавливаю фон */
+	background-color: #FFF6E4; 
+}
+/* Секция "О компании" */
+.about_us{
+	/* Растяну на всю ширину */
+	width: 100%;
+}
+/* Рискну сделать обобщающий стиль на заголовки секций */
+main h2{
+	/* Позиционирую */
+	text-align: center;
+	/* Настраиваю шрифт */
+	/* По макету */
+	font-size: 35px;
+	/* Динамический шрифт */
+	font-size: calc(30px + 5 * (100vw/1440));
+	/* Стилизую */
+	font-family: 'Montserrat Bold', serif;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	word-spacing: 0.2em;
+	color: #DBAD39;
+	/* Устанавливаю фиксированный отступ сверху и снизу */
+	line-height: 5em;
+}
+/* Сейчас будет ситуация, где текст должен соотноситься с высотой картинки
+Поэтому динамическое масштабирование неактуально. Берем все от ширины экрана,
+а на минимальной ширине 768px устанавливаем в процентах ширину и размер шрифта в пикселях
+ */
+.about_us > img{/* Знак > нужен чтобы этот стиль не относился к карточкам */
+	width: 31.5vw; /* Относительно ширины экранп*/
+	height: auto;
+	/* Задаю обтекание */
+	float: right;
+	/* Задаю отступ текста от картинки */
+	margin-left: 5%;
+	/* Смещаю картинку немного */
+	position: relative;
+	top: 15px;
+}
+/* Исправляю косяки обтекание */
+.about_us:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.about_us p{
+	/* Фиксирую ширину текстового блока */
+	width: 60%;
+	/* Задаю шрифт относительно ширины экрана */
+	font-size: 2vw;
+	/* Устанавливаю интервалы */
+	line-height: 1.2em;
+	letter-spacing: 0.1em;
+	/* Стилизую */
+	color: #606060;
+	font-family: Light, sans-serif;
+	font-weight: 300;
+}
+/* Настраиваю подзаголовок */
+.about_us h3{
+	/* Позиционирую */
+	text-align: center;
+	margin: 100px 0;
+	/* Настраиваю шрифт */
+	/* По макету */
+	font-size: 35px;
+	/* Динамический шрифт */
+	font-size: calc(21px + 14 * (100vw/1440));
+	/* Настраиваю интервалы*/
+	letter-spacing: 0.1em;
+	word-spacing: 0.2em;
+	/* Стилизую */
+	font-family: 'Gotham Pro', sans-serif;
+	color: #676767;
+	font-weight: 600;
+}
+/* Настраиваю список */
+.about_us ul{
+	/* Растягиваю */
+	width: 100%;
+	/* Устанавливаю шрифт для внутренних элементов карточки*/
+	/* По макету */
+	font-size: 20px;
+	/* Устанавливаю динамический шрифт */
+	font-size: calc(11px + 9 * (100vw/1440));
+}
+.about_us ul li{
+	/* Устанавливаю ширину li */
+	width: 31%;
+	/* Ставлю в линию */
+	display: inline-block;
+}
+.about_us ul li:not(:last-child){
+	/* устанавливаю отступы меж li */
+	margin-right: 2%;	
+}
+/* Картинки в карточках */
+.about_us ul li img{
+	/* Делаю img блочным, чтобы можно было центрировать его */
+	display: block;
+	/* Центрирую */
+	margin: 0 auto;
+	/* Устанавливаю размеры зависимые от шрифта */
+	width: 6em;
+	height: auto;
+}
+/* Карточные заголовки */
+.about_us ul li h4{	
+	/* Центрирую */
+	text-align: center;
+	/* Стилизую */
+	color: #595959;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-family: 'Gotham Pro', sans-serif;
+	/* Задаю интервалы */
+	letter-spacing: 0.05em;
+	/* Задаю отступ */
+	margin-top: 2em;
+}
+/* Услуги */
+/* Растягиваю контейнеры */
+.uslugy{
+	width: 100%;
+}
+.uslugy ul{
+	width: 100%;
+}
+/* Делаю li */
+.uslugy ul li{
+	/* Ограничиваю по ширине */
+	width: 30%;	
+	/* В линию. Использую такой способ, так как при inline из-за неравномерности текста один блок сьезжает */
+	float: left;
+}
+/* Устраняю косяки float */
+.uslugy ul:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.uslugy ul li:not(:last-child){
+	margin-right: 4%;
+}
+/* Заголовки услуг */
+.uslugy ul li h3{
+	/* Центрирую по карточке */
+	text-align: center;
+	/* Стилизую */
+	font-weight: 600;
+	color: #676767;
+	font-family: 'Gotham Pro', sans-serif;
+	/* Отступы */
+	margin: 28px 0;
+	/* Настраиваю интервалы */
+	letter-spacing: 0.15em;
+	/* Настраиваю шрифт */
+	/* По макету */
+	font-size: 26px;
+	/* Динамический шрифт */
+	font-size: calc(15px + 11 * (100vw/1440));
+}
+.usluga_card{
+	/* Обозначаю, что карточка должна быть во всю li */
+	width: 100%;
+	/* Закругляю и ставлю тень карточки */
+	border-radius: 10px;
+	box-shadow: 0px 10px 20px 0px #F9C54133;
+	/* Центрирую внутреннее содержимое */
+	text-align: center;	
+	/* Устанавливаю фон */
+	background-color: white;
+	/* Устанавливаю шрифт карточки для задавания относительных размеров*/	
+	font-size: 18px;
+	/* Динамический шрифт */
+	font-size: calc(12px + 6 * (100vw/1440));
+}
+.usluga_card img{
+	/* Размещаю картинку по ширине карточки */
+	width: 100%;
+	height: auto;
+	/* Закругляю её */
+	border-radius: 3.4%;	
+}
+.usluga_card p{
+	/* Пытаюсь установить плавно меняющиеся отступы */
+	/* С помощью em не получилось, поэтому попробую динамическое увеличение отступов
+	Сам додумал */
+	/* Отступы по макету */
+	margin-top: 35px;
+	margin-bottom: 45px;
+	/* Динамические */
+	margin-top: calc(35px + 25 * (100vw/2560));
+	margin-bottom: calc(45px + 25 * (100vw/2560));
+	/* Устанавливаю относительный шрифт */
+	font-size: 0.9em;
+	/* Настраиваю интервалы */
+	letter-spacing: 0.1em;
+	/* Стилизую */
+	font-family: 'Gotham Pro', sans-serif;
+	font-weight: 500;
+	color: #4A4A4A;
+}
+/* Ну также и с кнопкой */
+.usluga_card button{
+	/* Отступ от кнопки по макету*/
+	/* Отступ от кнопки по макету здесь является минимальным */	
+	margin-bottom: 40px;
+	/* Динамический отступ? */
+	margin-bottom: calc(40px + 10px * (100vw/2560));
+	/* Форма кнопки */
+	padding: 0.6em 2em;
+	border-radius: 0.25em;
+	/* Устанавливаю границу */
+	border: 2px solid #FFD15C;
+	/* Устанавливаю фон */
+	background-color: white;
+	/* Устанавливаю  относительный шрифт */
+	font-size: 0.8em;
+	/* Стилизую */
+	font-weight: 600;
+	text-transform: uppercase;
+	font-family: 'Gotham Pro', sans-serif;
+	color: #FFD15C;
+	/* Настраиваю интервалы */
+	letter-spacing: 0.04em;
+}
+/* Примитивная анимация */
+.usluga_card button:hover{
+	background-color: #FFD15C;
+	color: white;
+}
+/* В принципе динамический отступ сработал хорошо */
+.team{
+	width: 100%;	
+}
+.team > p{
+	/* Ограничиваю по ширине растяжения */
+	width: 70%; 
+	/* Центрирую */
+	margin: 0 auto;
+	text-align: center;
+	/* Стилизую */
+	font-family: 'Gotham Pro', sans-serif;
+	font-weight: 400;
+	color: #939393;
+	/* устанавливаю интервалы */
+	letter-spacing: 0.1em;
+	/* Настраиваю шрифт */
+	/* По макету */
+	font-size: 28px;
+	/* Динамический */
+	font-size: calc(19px + 9 * (100vw/1440));
+}
+.team .line{
+	/* Устанавливаю размеры */
+	width: 53%;
+	height: 2px;
+	/* Центрирую и делаю отступы*/
+	margin: 70px auto;
+	/* Динамический отступ не нужен */
+	/* Закрашиваю */
+	background-color: rgba(85, 57, 0, 0.3);
+}
+.team ul{
+	/* Растягиваю */
+	width: 100%;
+	/* Делаю отступ от линии c учетом смещения иконки*/
+	margin-top: calc(100px + 5.18vw);
+	/* Динамический отступ не нужен*/
+}
+/* Преждевременно исправляю баг float */
+.team ul:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.team ul li{
+	/* В линию */
+	float: left;
+	/* Устанавливаю ширину карточки */
+	width: 23%;
+	/* Центрирую содержимое */
+	text-align: center;
+	/* Устанавливаю внутренний отступ содержимого */
+	padding: 0 1%;
+	/* Закругление */
+	border-radius: 3.4%;
+	/* Фон */
+	background-color: white;
+	/* Устанавливаю тень карточки */	
+	box-shadow: 0px 10px 20px rgba(249, 197, 65, 0.2);
+	/* Устанавливаю общее семейство шрифта */
+	font-family: 'Gotham Pro', sans-serif;
+}	
+/* Устанавливаю отступы меж карточками*/
+.team ul li:not(:last-child){
+	margin-right: 2%;
+}
+/* стилизую иконку */
+.team img{
+	/* Устанавливаю блочность */
+	display: block;
+	/* Центрирую */
+	margin: 0 auto;
+	/* Размеры */
+	width: 50%;
+	height: auto;
+	/* Закругляю */
+	border-radius: 50%;
+	/* Устанавливаю границу */
+	border: 8px solid #F9C541;
+	/* Ставлю центр иконки на край карточки */
+	/* Тут опять расчеты с vw, хотя на данный момент
+	мне этот метод кажется самым отзывчивым. Хм.
+	Ну опять же, он не всегда применим.
+	По сути он нужен для сохранения одинаковой пропорциональности
+	между... высотой дочернего элемента и шириной контейнера?
+	*/
+	margin-top: -5.18vw;
+}
+/* Теперь наверное все в vw устанавливать?? 
+Не, в динамическом проще и не влияет на качество
+Оптимальнее - одним словом*/
+.team ul li h3{
+	/* Стилизую */
+	font-weight: 600;
+	color: #5F5F5F;
+	/* Настраиваю интервалы */
+	line-height: 2em;
+	letter-spacing: 0.1em;
+	/* Устанавливаю шрифт */
+	/* По макету */
+	font-size: 30px;
+	/* Динамический */
+	font-size: calc(25px + 5 * (100vw/1440));
+}
+.team ul li h4{
+	/* Стилизую */
+	font-family: Light, sans-serif;
+	color: #656565;
+	font-weight: 300;
+	/* Интервалы */
+	letter-spacing: 0.06em;
+	line-height: 2em;
+	/* Устанавливаю шрифт */
+	/* По макету */
+	font-size: 14px;
+	/* Динамический */
+	font-size: calc(10px + 4 * (100vw/1440));
+}
+.team ul li p{
+	/* Небольшой отступ сверху*/
+	margin-top: 1em;
+	/* Стилизую */
+	color: #505050;
+	font-weight: 500;
+	/* Интервалы */
+	letter-spacing: 0.1em;
+	/* Шрифт*/
+	font-size: 14px;
+	/* Динамический */
+	font-size: calc(10px + 4 * (100vw/1440));
+}
+.team address{
+	margin: 2em 0;
+}
+.team address i{
+	/* Шрифт */
+	/* Мой экран */
+	font-size: 18px;
+	/* Динамический */
+	font-size: calc(14px + 4 * (100vw/1440));
+	/* Интервалы */
+	letter-spacing: 0.5em;
+	/* Стиль */
+	color: #595959;
+
+}
+/* По приколу пока добавлю примитивную анимацию */
+.team ul li:hover{
+	background-color: #F9C541;
+}
+
+.patners{
+	width: 100%;
+}
+.woodman{
+	/* Размеры и централизация */
+	width: 50%;
+	margin: 0 auto;
+	/* Закругляю */
+	border-radius: 10px;
+	/* Фон и тень */
+	background-color: white;
+	box-shadow: 0px 10px 20px rgba(249, 197, 65, 0.2);
+	/* Исправляю баг отступа родительского элемента вместе с дочерним */
+	padding: 1px;
+	/* Устанавливаю общий шрифт */
+	/* Макет */
+	font-size: 40px;
+	/* Динамический */
+	font-size: calc(20px + 20 * (100/1440vw));
+	/* Центрирую текстовое содержимое */
+	text-align: center;
+	/* Делаю отступ снизу относительно шрифта */
+	margin-bottom: 1em;
+}
+.woodman img{
+	/* Размеры */
+	width: 13%;
+	height: auto;
+	/* Позиционирование */
+	display: block;
+	margin:  0.6em auto;
+}
+.woodman h3{
+	/* 	Шрифт */
+	font-size: 1em;
+	/* Стилизую */
+	font-family: 'Playfair Display';
+	font-weight: 700;
+	/* Интервалы */
+	letter-spacing: 0.15em;
+	line-height: 2.2em;
+}
+.partners p{
+	/* Ограничиваю растяжение по ширине */
+	width: 55%;
+	/* Центрирую */
+	margin: 0 auto;
+	text-align: center;
+	/* Стилизую */
+	font-family: 'Light', sans-serif;
+	color: #515151;
+	letter-spacing: 0.15em;
+	font-weight: 200;
+	/* Шрифт */
+	/* Макет */
+	font-size: 24px;
+	/* Динамический */
+	font-size: calc(16px + 8 * (100vw/1440)); 
+}
+.partners address{
+	/* Шрифт */
+	/* Макет */
+	font-size: 20px;
+	/* Динамический */
+	font-size: calc(14px + 6 * (100vw/1440));
+	/* Растягиваю контейнер чисто для центрирования */
+	/* Центрирую*/
+	text-align: center;
+}
+.partners a{
+	/* Стилизую*/
+	color: #FFD15C;
+	text-transform: uppercase;
+	text-decoration: underline;
+	/* Для нововведений того же Хрома */
+	text-decoration-skip-ink: none;
+	font-style: normal;
+	font-family: 'Gotham Pro', sans-serif;
+	/* Интервалы */
+	letter-spacing: 0.15em;
+	line-height: 3.5em;
+}
+.faq{
+	width: 100%;
+}
+
+.faq aside{
+	/* Ограничиваю по ширине*/
+	width: 50%;
+	/* Задаю обтекание слева */
+	float: left;
+}
+/* Делаю блоки вопросов */
+.faq aside details{
+	/* Устанавливаю ширину */
+	width: 100%;
+	/* Фон */
+	background-color: white;
+	/* Тень */
+	box-shadow: 0px 10px 20px rgba(249, 197, 65, 0.2);
+	/* Устанавливаю общий шрифт */
+	/* По макету */
+	font-size: 24px;
+	/* Динамический */
+	font-size: calc(16px + 8 * (100vw/1440));
+	/* Расписываю общие свойства внутреннего содержимого */
+	font-family: 'Gotham Pro', sans-serif;
+	/* Устанавливаю вертикальные отступы */
+	margin-top: 30px;
+}
+.faq aside details summary{
+	/* Относительный шрифт */
+	font-size: 1em;
+	/* Убираю значок раскрытия */
+	list-style: none;
+	/* Стилизую */
+	color: #858585;
+	font-weight: 300;
+	/* Интервалы */	
+	letter-spacing: 0.1em;
+	line-height: 2em;
+	/* Внутренние отступы */
+	padding-left: 2em;
+	padding-right: 1em;
+}
+.faq aside details summary img{
+	/* Устанавливаю размеры относительно шрифта */
+	width: 1.5em;
+	height: 1.5em;
+	/* Позиционирую */
+	margin-top: 0.25em;/* Центр по вертикали */
+	float: right;
+
+}
+/* Исправляю баг float */
+.faq aside details summary:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+/* При раскрытии блока details будут меняться изображения
+Сделаю я это способом display none */
+.faq .close_img{
+	display: block;
+}
+.faq .open_img{
+	display: none;
+}
+.faq aside details[open] .open_img{
+	display: block;
+}
+.faq aside details[open] .close_img{
+	display: none;
+}
+/* Работает! */
+.faq aside details p{
+	/* Растягиваю на всю ширину, чтобы потом задать внутренние отступы */
+	width: 100%;
+	padding-left: calc(2em/0.83);
+	padding-right: calc(3em/0.83);/* С учетом внутреннего отступа summary и ширины значка */
+	padding-bottom: calc(1em/0.83);
+	/* Шрифт */
+	font-size: 0.83em;	
+	/* Стилизую */
+	font-family: 'Light', sans-serif;
+	color: #606060;
+	font-weight: 400;
+	/* Интервалы */
+	line-height: 1.2em;
+	letter-spacing: 0.08em;
+}
+.faq form{
+	/* Ширина */
+	width: 40%;
+	/* Отступ от aside */
+	margin-left: 10%;
+	/* Задаю обтекание справа */
+	float: right;
+	/* Задаю общий шрифт */
+	font-family: 'Gotham Pro', sans-serif;
+	/* Макет */
+	font-size: 14px;
+	/* Динамический */
+	font-size: calc(10px + 4 * (100vw/1440));
+}
+/* Устраняю баг обтекания */
+.faq:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.faq form img{
+	display: block;
+	/* Размеры */
+	width: 70%;
+	height: auto;
+	/* Центрирование */
+	margin: 0 auto;
+}
+.faq form legend{
+	/* Шрифт */
+	font-size: 2.5em;
+	/* Интервалы */
+	line-height: 2em;
+	letter-spacing: 0.08em;
+	/* Стилизую */
+	color: #FFD15C;
+	font-family: Montserrat, serif;
+	font-weight: 600;
+	/* Ставлю по центру */
+	text-align: center;
+}
+/* Настраиваю у обоих элементов одинаковый шрифт*/
+.faq form label, .faq form input{
+	/* Смещаю влево чуть чуть */
+	margin-left: 20%;
+	/* Шрифт */
+	font-size: 1em;
+	/*Стилизую */
+	color: #656464;
+	font-weight: 400;
+	/* Интервалы */
+	letter-spacing: 0.1em;
+	line-height: 2em;
+}
+/* Формирую поле ввода */
+.faq form input{
+	/* Внутренние отступы */
+	padding-left: 1.5em;
+	line-height: 3em;
+	/* Размеры */
+	width: 70%;
+	/* Стилизую */
+	color: #707070;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1.5px solid #707070;
+	/* Закругляю */
+	border-radius: 10px;
+}
+.faq form button{
+	/* Внутренние отступы */
+	padding: 1em 2em;
+	/* Шрифт */
+	font-size: 1em;
+	/* Интервалы */
+	letter-spacing: 0.1em;
+	/* Стилизую */
+	color: white;
+	box-shadow: 0px 10px 15px 0px #454CE34D;
+	background-color: #454CE3;
+	/* Закругляю */
+	border-radius: 10px;
+	/* Центрирую */
+	/* Нашел этот метод в инете. Прикольно. */
+	position: relative;
+	left: 55%;/* Смещаешь на 50% от контейнера */
+	transform: translate(-60%, 0);/* Делаешь так, чтобы на
+	середине длины контейнера стоял не левый край, а центр
+	*/
+	/* Отступ */
+	margin-top: 30px;
+}
+.faq form button:hover{
+	transform: translate(-50%, 0) scale(1.2);
+}
+/* Сразу убираю баг float */
+.otzyv{
+	/* Устанавливаю общий шрифт в vw */
+	font-size: 1vw;
+}
+.otzyv:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.otzyv img{
+	/* Размер */
+	width: 20%;
+	float: left;
+	display: block;
+}
+/* Вертикальные размеры ставятся в vw */
+.otzyv_text{
+	/* Обтекание */
+	float: right;
+	/* Ограничиваю по ширине */
+	width: 60%;
+	/* Устанавливаю общее семейство шрифта*/
+	font-family: 'Gotham Pro', sans-serif;
+}
+.otzyv_text p{
+	/* Настраиваю шрифт по пропорциям */
+	font-size: 1.7em;
+	/* Стилизую */
+	color: #4F4F4F;
+	/* интервалы */
+	letter-spacing: 0.05em;
+	/* Отступ сверху и снизу */
+	margin: 2.4vw 0;
+}
+/* Настраиваю эти ебучие кавычки */
+.sign{
+	/* Отступ сверху равный отсутпу текстового блока для выравнивания  по линии */
+	margin-top: calc(1.7vw + 2.4vw);
+	/* Отступы слева и справа равные ширине соответствующих блоков*/
+	margin-left: 20%;
+	margin-right: 60%;
+	/* Чтобы кавычки крепились к тексту */
+	text-align: right;
+	/* Стилизую */
+	font-family: 'Playfair Display', serif;
+	color: #FFD15C;
+	/* Шрифт */
+	font-size: 14em;/* Относительно шрифта в p*/
+	/* Интервалы */
+	letter-spacing: 0.1em;
+	line-height: 0;/* Фух, разобрался */
+}
+.otzyv_text h3{
+	/* Стилизую */
+	color: #FFD15C;
+	font-weight: 700;
+	/* Размер шрифт */
+	font-size: 2.5em;
+	/* Интервалы */
+	letter-spacing: 0.12em;
+	line-height: 1.9em;
+	word-spacing: 0.3em;
+}
+.otzyv_text h4{
+	/* Стилизую */
+	font-family: Light, sans-serif;
+	color: #6D6D6D;
+	font-weight: 300;
+	/* Размеры шрифта */
+	font-size: 1.7em;
+}
+.otzyv_text address{
+	font-size: 1.2em;
+	/* Отступ */
+	margin-top: 2vw;
+}
+.otzyv_text button{
+	/* Шрифт */
+	font-size: 1em;
+	/* Стилизую*/
+	color: white;
+	box-shadow: 0px 10px 15px 0px #454CE34D;
+	background-color: #454CE3;
+	font-style: normal;
+	font-family: 'Gotham Pro', sans-serif;
+	/* Закругляю */
+	border-radius: 10px;
+	/* Интервалы */
+	letter-spacing: 0.1em;
+	line-height: 2em;
+	/* Делаю вид кнопки */
+	padding: 0.5em;	
+}
+.otzyv_text button:first-child{
+	margin-right: 3em;
+}
+
+
+.form_wrapper{	
+	/* Растягиваю  по всей ширине*/
+	width: 100%;
+	/* Устанавливаю фон */
+	background-color: #F9C541;
+	/* Устанавливаю общий размер шрифта в vw */
+	font-size: 1vw;
+	padding-bottom: 3em;
+}
+.form_wrapper h2{
+	/* Позиционирую */
+	text-align: center;
+	/* Настраиваю шрифт */
+	/* По макету */
+	font-size: 35px;
+	/* Динамический шрифт */
+	font-size: calc(30px + 5 * (100vw/1440));
+	/* Стилизую */
+	font-family: 'Montserrat Bold', serif;
+	font-weight: 800;
+	color: white;
+	text-transform: uppercase;
+	/* Интервалы */
+	letter-spacing: 0.15em;
+	word-spacing: 0.2em;
+	line-height: 5em;
+}
+.form{
+	/* Максимальный размер */
+	max-width: calc(0.7 * 1921px);
+	/* Задаю размеры и центрирую */
+	width: 70%;
+	margin: 0 auto;  
+	/* Внутренние отступы */
+	padding: 3% 5% 3% 3%;
+	/* Стилизую */
+	background-color: white;
+	box-shadow: 0px 0px 40px 0px #F9C54133;
+	/* Закругление */
+	border-radius: 10px;
+}
+.form:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.form aside{
+	/* Задаю обтекание блока с контактами */
+	float: right;
+	/* Ограничиваю по ширине */
+	width: 40%;
+}
+
+.form aside img{
+	display: block;
+	/* Размер */
+	width: 90%;
+	height: auto;
+	/* Центрирование */
+	margin: 0 auto;
+}
+.form aside h3{
+	/* Центрирование */
+	text-align: center;
+	/* Под картинкой можно и динамическим */
+	/* Макет */
+	font-size: 24px;
+	/* Динамический */
+	font-size: calc(18px + 6 * (100vw/1440));
+	/* Стиль */
+	font-family: 'Gotham Pro', sans-serif;
+	color: #676767;
+	/* Интервалы */
+	letter-spacing: 0.15em;
+	line-height: 2em;
+}
+.form aside address{
+	/* Стиль*/
+	font-family: 'Light', sans-serif;
+	font-style: normal;
+	color: #676767;
+	/* Центрирование */
+	text-align: center;
+	/* Размер шрифта */
+	/* По макету */
+	font-size: 18px;
+	/* Динамический */
+	font-size: calc(12px + 6 * (100vw/1440));
+	/* Интервалы */
+	line-height: 2em;
+	letter-spacing: 0.15em;	
+}
+.form aside address i{
+	/* Стиль */
+	color: #676767;
+	/* Шрифт */
+	/* По макету */
+	font-size: 24px;
+	/* Динамический */
+	font-size: calc(18px + 6 * (100vw/1440));
+	/* Интервалы */
+	letter-spacing: 0.5em;
+	line-height: 2em;
+}
+.form form{
+	/* Ограничиваю по ширине */
+	width: 55%;
+	/* Задаю строение в линию */
+	display: inline-block;
+	/* Общий шрифт */
+	font-size: 1vw;
+}
+.form form input, textarea{
+	/* Ширина */
+	width: 100%;
+	/* Границы */
+	border: 1px solid #444444;
+	border-radius: 5px;
+	/* Внутренний отступ содержимого */
+	padding: 1em 1em;
+	/* Шрифт */
+	font-size: 1em;
+	/* Стиль */
+	color: #6D6D6D;
+	font-family: Light, sans-serif;
+	/* Интервалы */
+	letter-spacing: 0.15em;
+	margin-bottom: 1.5em;
+}
+.form form textarea{
+	width: 100%;
+}
+.form form button{
+	/* Шрифт */
+	font-size: 15px;
+	/* Динамический */
+	font-size: calc(12px + 3 * (100vw/1440));
+	/* Стилизую*/
+	color: white;
+	box-shadow: 0px 10px 15px 0px #454CE34D;
+	background-color: #454CE3;
+	font-style: normal;
+	font-family: 'Gotham Pro', sans-serif;
+	text-transform: uppercase;
+	/* Закругляю */
+	border-radius: 10px;
+	/* Интервалы */
+	letter-spacing: 0.1em;
+	/* Внутренние отступы */
+	padding:  0.7em 1em;
+	/* Центрирование */
+	/* Опять тот же способ */
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+.form form button:hover{
+	transform: translateX(-50%) scale(1.1) ;
+}
+
+.footer_wrapper{
+	width: 100%;
+	background-color: #272727;
+}
+footer{
+	/* Максимальная ширина */
+	max-width: calc(0.7 * 1921px);
+	/* Центрирую */
+	width: 70%;
+	margin: 0 auto;
+	padding: 3em 0 1em 0;
+}
+footer h2{
+	/* Стиль */
+	font-family: Montserrat, serif;
+	color: #092C8F;
+	font-weight: 900;
+	/* Центрирование */
+	text-align: center;
+	/* Интервалы */
+	letter-spacing: 0.15em;
+	/* Размер шрифта */
+	/* Макет */
+	font-size: 36px;
+	/* Динамический не особо нужен */
+}
+footer nav{
+	width: 100%;
+}
+/* Следующий сайт будет на flex-верстке! */
+footer nav ul{
+	display: flex;
+	justify-content: space-between;
+}
+footer nav ul li{
+	/* В линию */
+	display: inline-block;
+	margin: 3em 0;
+}
+/* С блочной версткой очень сложно поддерживать динамическое выравнивание */
+
+/* Аналогично header, только методом vw, для лучшего выравнивания */
+footer nav ul li a:link, footer nav ul li a:visited {
+	/* Отступ меж буквами */
+	letter-spacing: 0.12em;
+	font-family: Roboto, serif;
+	/* Жирность */
+	font-weight: 700;
+	/* Цвет */
+	color: white;
+	/* Капс */
+	text-transform: uppercase;
+	/* Размер шрифта под макет */
+	font-size: 18px;
+	/* Динамическое увеличение шрифта */
+	font-size: calc(8px + 6 * (100vw/1440));
+}
+footer address{
+	text-align: center;
+	/* Стиль*/
+	font-family: 'Light', sans-serif;
+	font-style: normal;
+	/* Центрирование */
+	text-align: center;
+	/* Размер шрифта */
+	/* По макету */
+	font-size: 15px;
+	/* Динамический */
+	font-size: calc(12px + 3 * (100vw/1440));
+	/* Интервалы */
+	line-height: 2em;
+	letter-spacing: 0.15em;	
+}
+footer address a:link, footer address a:visited{
+	color: white;
+}
+footer address i{
+	/* Шрифт */
+	/* По макету */
+	font-size: 21px;
+	/* Динамический */
+	font-size: calc(18px + 3 * (100vw/1440));
+	/* Интервалы */
+	letter-spacing: 0.5em;
+	line-height: 2em;
+}
+/* Переделаю под flex */
+header nav ul{
+	display: flex;
+	justify-content: space-between;
+}
+header nav ul:last-child{
+	margin-right: 0;
+}
+/* Добавлю анимацию к подвалу */
+footer nav ul li a:link:hover, footer nav ul li a:visited:hover{
+	color: #092C8F;
+} 

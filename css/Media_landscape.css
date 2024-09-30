@@ -1,0 +1,196 @@
+/* Адаптивность чекалась на хроме */
+@media only screen and  (orientation: landscape){
+/* Прочие добавления */
+/* Минимальные размеры */	
+body{
+/* минимальная ширина нормального планшета, пускай потом будет горизонтальный скрол */
+	min-width: calc(768px/0.9);
+}
+header{
+	min-width: 768px;
+}
+main{
+	min-width: 768px;
+}
+section{
+	min-width: 768px;
+}
+.form{
+	min-width: 768px;
+}
+footer{
+	min-width: 768px;
+}
+/* Упрощает медиа-запросы (не нужно писать на ширину меньше 768px) */
+
+/* Чтобы не ломался круг на шапке */
+@media 	(max-height: 600px) {
+	header{
+		background-size: contain, 432px;
+	}
+}
+
+
+
+
+
+
+
+
+
+/* Для больших экранов */
+
+@media only screen and  (min-width: 1921px){
+	.usluga_card{
+		font-size: 30px;
+	}
+	/* Устанавливаю максимальный отступ*/
+	.usluga_card p{
+		margin-top: 60px;
+		margin-bottom: 70px;
+	}
+	.usluga_card button{
+		margin-bottom: 50px;
+	}
+	.team img{
+	margin-top:  -107px;
+	}	
+	.otzyv address{
+		font-size: 1em;
+	}
+/* Media_bracket */
+}
+/* Для десктопов */
+
+@media only screen and  (min-width: 1601px) and (max-width: 1920px){
+	.usluga_card{
+		font-size: 25px;
+	}
+
+/* Media_bracket */
+}	
+/* Для ноутбуков */
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+	.form form button{
+		font-size: 14px;
+	}
+/* Media_bracket */
+}
+/* Для нетбуков */
+
+@media only screen and  (min-width: 992px) and (max-width: 1199px) {
+	/* На этом интервале не очень работает */
+	.about_us ul{
+		font-size: 15px;
+	}
+	.usluga_card{
+		font-size: 15px;
+	}
+	.form form button{
+		font-size: 12px;
+	}
+/* Media_bracket */
+}
+/* Для планшетов */
+
+@media (max-width: 992px) {
+
+	/* Для того, чтобы было все на одной линии */
+	header nav ul li a:link, a:visited{
+		/* Минимальный размер шрифта */
+		font-size: 8px;  
+	}
+	/* Мне кажется, что здесь я буду чисто минимальные шрифты устанавливать */
+	.head_block h1{
+		font-size: 28px;
+	}
+	.head_block h1 strong{
+		font-size: 30px;
+	}
+	.head_block h2{
+		font-size: 15px;
+	}
+	.head_block button{
+		font-size: 12px;
+	}
+	main h2{
+		font-size: 30px;
+	}
+	/* Оптимизирую - на этом диапазоне мне не нравится*/
+	.about_us p{
+		font-size: 20px;
+	}
+	.about_us > img{
+		width: 35%;
+	}
+	.about_us h3{
+		font-size: 21px;
+	}
+	.about_us ul{
+		font-size: 14px;
+	}
+	.uslugy ul li h3{
+		font-size: 15px;
+	}
+	.usluga_card{
+		font-size: 12px;
+	}
+	.team > p{
+		font-size: 19px;
+	}
+	.team img{
+		margin-top: -44px;	
+		border-width: 5px;
+	}
+	.team ul li h3{
+		font-size: 25px;
+	}
+	.team ul li h4{
+		font-size: 10px;
+	}
+	.team ul li address i{
+		font-size: 14px;
+	}
+	.woodman{
+		font-size: 20px;
+	}
+	.partners p{
+		font-size: 16px;
+	}
+	.partners a{
+		font-size: 14px;
+	}
+	.faq aside details{
+		font-size: 16px;
+	}
+	.faq form{
+		font-size: 10px;
+	}
+	.otzyv{
+		font-size: 10px;
+	}
+	.otzyv_text  address button:first-child{
+	margin-right: 1%;
+	}
+	.form aside h3{
+		font-size: 18px;
+	}
+	.form aside address{
+		font-size: 12px;
+	}
+	.form aside address i{
+		font-size: 18px;
+	}
+	.form form{
+		font-size: 12px;
+	}
+	.form form button{
+		font-size: 12px;
+	}
+	footer nav ul li a:link, a:visited{
+	font-size: 10px;
+	}
+/* Media_bracket */
+}
+}

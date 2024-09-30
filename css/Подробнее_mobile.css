@@ -1,0 +1,84 @@
+@media (orientation: portrait) {
+	/* Короче я тут напортачил с селекторами, поэтому на каждое свойство
+	я буду писать important, чтобы оно работало */
+	body{
+	/* минимальная ширина нормального планшета, пускай потом будет горизонтальный скрол */
+		min-width: 0 !important;
+		overflow-x: hidden;
+	}
+/* Media Bracket */
+	.mobile_none{
+		display: none  !important;	
+	}
+	.mobile_navbar{
+		/* Материализую */
+		display: block !important;
+		/* Стиль */
+		background-color: #FFF6E4;
+		/* Центрирую */
+		text-align: center;
+		/* Стилизую */
+		font-family: Roboto, sans-serif;
+		text-transform: uppercase;
+	}
+	/* сделаю раскрывающуюся панель меню в виде обычного детайлз */
+	.mobile_navbar details summary{
+		list-style: none;
+		/* Размер */
+		font-size: 30px;
+		/* Стиль */
+		color: #092C8F;
+	}
+	.mobile_nav{
+		display: block !important;	/* Иначе он слушает display: none; */	
+	}
+	.mobile_nav li{
+		display: block;
+		/* Переделываю че написано в responsive */
+		/* Задаю отступ иконок на соцсети */
+		margin-left: 0 !important;
+		/* Интервалы */
+		line-height: 1.4em;
+		/* Размеры */
+		font-size: 20px;
+	}
+	.mobile_nav li i{
+		font-size: 20px;
+		float: none;
+	}
+	/* Стилизую ссылки */
+	.mobile_nav li a:link, .mobile_nav li a:visited{
+		color: #092C8F;
+		font-size: 15px;
+	}
+	.spisok_uslug{
+		width: 93%;
+		font-size: 13px;
+	}
+	h1 img{
+		width: 90%;
+	}
+	.spisok_uslug li{
+		padding: 1em;
+	}
+	footer nav{
+		margin-bottom: 20px;
+	}
+	footer nav ul{
+		display: block !important;
+		text-align: center;
+	}
+	footer nav ul li{
+		float: none !important;
+		display: block !important;
+		margin: 15px 0 !important;
+		line-height: 1 !important;
+	}
+	footer nav ul li a:link, footer nav ul li a:visited{
+		font-size: 18px;
+	}
+	footer nav ul li a:link:hover, footer nav ul li a:visited:hover{
+		color: #092C8F;
+	} 
+	/* Media Bracket */
+}
